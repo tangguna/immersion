@@ -28,3 +28,4 @@
 #### Activity顶部为图片时，在Activity的onCreate()里面添加
      StateBar.setTranslucentForImageViewInFragment(this, null);
    
+![图片加载失败]()
