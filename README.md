@@ -35,4 +35,38 @@
      
    
 ### 设置Fragment状态栏颜色
-#### 
+#### 在设置fragment状态栏颜色时，需要设置xml布局最外层为LinearLayout布局，并在顶部添加View设置状态栏颜色
+    <?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:app="http://schemas.android.com/apk/res-auto"
+	    android:orientation="vertical"
+	    android:id="@+id/one"
+	    android:fitsSystemWindows="true"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    <View
+		android:id="@+id/fillStatusBarView"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:background="#53ae71" />
+	    <LinearLayout
+		android:fitsSystemWindows="true"
+		android:background="@color/colorAccent"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<include layout="@layout/title_layout"/>
+	    </LinearLayout>
+	</LinearLayout>
+
+#### 随后在需要使用的Fragment或者BaseFragmen中添加
+      StateBar.setFragmentImmersion(Context context,int id,View view)
+##### id:view的id号，例如fillStatusBarView
+##### view:布局
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fg, container, false);
+        StateBar.setFragmentImmersion(getContext(),R.id.fillStatusBarView,view)
+        unbinder = ButterKnife.bind(this, view);
+        return view;
+    }
