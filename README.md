@@ -28,7 +28,7 @@
 #### Activity顶部为图片时，在Activity的onCreate()里面添加
      StateBar.setTranslucentForImageViewInFragment(this, null);
    
-![图片加载失败](https://github.com/tangguna/immersion/blob/master/img/activity.jpg
+![图片加载失败](https://github.com/tangguna/immersion/blob/master/img/activity.jpg)
 
 #### 设置状态栏顶部颜色
      StateBar.setColor(this, Color.parseColor("#3C89FD"));
